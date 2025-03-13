@@ -1,12 +1,21 @@
 <template>
   <div id="app">
     <div @click="toggleMicroApp" class="toggle-btn">展示/隐藏</div>
-    <div class="square">block</div>
-    <micro-app v-if="showapp" name="app" url="http://localhost:3001/react18/"></micro-app>
+    <div class="flex">
+      <div class="square">block</div>
+      <micro-app
+        class="flex-1"
+        v-if="showapp"
+        name="app"
+        url="http://localhost:3001/react18/"
+      ></micro-app>
+    </div>
   </div>
 </template>
 
 <script>
+
+window.globalStr = 'parent'
 export default {
   name: "App",
 
@@ -45,6 +54,15 @@ export default {
   align-items: center;
   margin: 0 auto;
   user-select: none;
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+}
+
+.flex-1 {
+  flex: 1;
 }
 
 .square {

@@ -1,4 +1,5 @@
 import loadHtml from "./source";
+import SandBox from "./sandbox";
 
 export const appInstanceMap = new Map();
 
@@ -10,6 +11,8 @@ export default class CreateApp {
     this.status = "loading";
     loadHtml(this);
     this.loadCount = 0;
+
+    this.sandbox = new SandBox(name);
   }
 
   // created loading mount unmount
@@ -44,9 +47,12 @@ export default class CreateApp {
 
     this.container.appendChild(fragment);
 
+    this.sandbox.start();
+
     // 执行js
     this.source.scripts.forEach((info) => {
       (0, eval)(info.code);
+      (0, eval)(this.sandbox.bindScope(info.code));
     });
 
     this.status = "mounted";
@@ -57,6 +63,8 @@ export default class CreateApp {
     this.status = "unmount";
 
     this.container = null;
+
+    this.sandbox.stop();
 
     if (destory) {
       appInstanceMap.delete(this.name);
