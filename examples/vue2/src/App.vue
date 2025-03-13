@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div @click="toggleMicroApp" class="toggle-btn">展示/隐藏</div>
+    <div @click="toggleMicroApp" class="toggle-btn text-red">展示/隐藏</div>
     <div class="flex">
       <div class="square">block</div>
       <micro-app
@@ -63,6 +63,10 @@ export default {
 
 .flex-1 {
   flex: 1;
+}
+
+.text-red {
+  color: blue;
 }
 
 .square {
