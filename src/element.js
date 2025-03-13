@@ -25,7 +25,12 @@ class MyElement extends HTMLElement {
   }
 
   disconnectedCallback() {
-    console.log("micro-app is disconnected");
+    console.log("micro-app is disconnected", this.hasAttribute('destory'));
+    const app = appInstanceMap.get(this.name);
+
+    app.unmount(this.hasAttribute('destory'));
+
+    console.log('app', app)
   }
 
   attributeChangedCallback(name, oldValue, newValue) {

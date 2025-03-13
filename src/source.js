@@ -3,8 +3,6 @@ import { fetchSource } from "./utils";
 export default function loadHtml(app) {
   fetchSource(app.url)
     .then((html) => {
-      console.log("html: ", html);
-
       html = html
         .replace(/<head[^>]*>[\s\S]*?<\/head>/i, (match) => {
           // 将head标签替换为micro-app-head，因为web页面只允许有一个head标签
