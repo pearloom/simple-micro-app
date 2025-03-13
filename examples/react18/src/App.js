@@ -1,8 +1,18 @@
 import logo from './logo.svg';
 import { Link } from 'react-router-dom';
 import './App.css';
+import { useEffect } from 'react';
+
+window.globalStr = 'child'
 
 function App() {
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      console.log('scroll')
+    })
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">

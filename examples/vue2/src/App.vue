@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div @click="toggleMicroApp" class="toggle-btn">展示/隐藏</div>
+    <div class="square">block</div>
     <micro-app v-if="showapp" name="app" url="http://localhost:3001/react18/"></micro-app>
   </div>
 </template>
@@ -44,5 +45,11 @@ export default {
   align-items: center;
   margin: 0 auto;
   user-select: none;
+}
+
+.square {
+  width: 100px;
+  height: 600px;
+  background-color: aliceblue;
 }
 </style>

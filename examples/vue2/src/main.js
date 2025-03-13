@@ -7,6 +7,8 @@ SimpleMicroApp.start()
 
 Vue.config.productionTip = false
 
+window.globalStr = 'parent'
+
 new Vue({
   render: h => h(App),
 }).$mount('#app')
