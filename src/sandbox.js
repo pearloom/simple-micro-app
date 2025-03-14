@@ -132,6 +132,9 @@ export default class SandBox {
 
       // 卸载全局事件
       this.releaseEffect();
+
+      // 清空所有绑定函数
+      this.microWindow.microApp.clearDataListener()
     }
   }
 

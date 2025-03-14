@@ -54,7 +54,7 @@ export default function loadHtml(app) {
  */
 function extractSourceDom(parent, app) {
   const children = Array.from(parent.children);
-  
+
   // 递归每一个子元素
   children.length &&
     children.forEach((child) => {
@@ -94,8 +94,6 @@ function extractSourceDom(parent, app) {
       }
 
       parent.removeChild(dom);
-    } else if (dom instanceof HTMLStyleElement) {
-      // 进行样式隔离
     }
   }
 }
