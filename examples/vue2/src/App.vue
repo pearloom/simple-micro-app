@@ -1,12 +1,15 @@
 <template>
   <div id="app">
     <div @click="toggleMicroApp" class="toggle-btn text-red">展示/隐藏</div>
+    <div>{{ data.name }}</div>
     <div class="flex">
       <div class="square">block</div>
       <micro-app
         class="flex-1"
         v-if="showapp"
         name="app"
+        :data="data"
+        @datachange="handleDataChange"
         url="http://localhost:3000/react18/"
       ></micro-app>
     </div>
@@ -14,21 +17,37 @@
 </template>
 
 <script>
-
 export default {
   name: "App",
 
   data() {
     return {
       showapp: true,
-      data: {},
+      data: {
+        data: {
+          name: 111
+        }
+      },
     };
+  },
+
+  mounted() {
+    setTimeout(() => {
+      this.data = {
+        name: '来自基座应用的数据'
+      }
+    }, 2000)
   },
 
   methods: {
     toggleMicroApp() {
       this.showapp = !this.showapp;
     },
+
+    handleDataChange(e) {
+      console.log('接受数据', e.detail.data)
+      this.data.name = e.detail.data.name
+    }
   },
 };
 </script>

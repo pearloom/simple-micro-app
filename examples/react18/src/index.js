@@ -18,6 +18,11 @@ window.addEventListener('scroll', () => {
   console.log('scroll')
 })
 
+
+setTimeout(() => {
+  window.microApp?.dispatch({ name: '来自子应用的数据' })
+}, 3000);
+
 console.log(111, window)
 
 // If you want to start measuring performance in your app, pass a function
