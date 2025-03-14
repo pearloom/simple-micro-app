@@ -3,11 +3,13 @@ import App from './App.vue'
 
 import SimpleMicroApp from 'simple-micro-app'
 
+
+window.globalStr = 'parent'
+
 SimpleMicroApp.start()
 
 Vue.config.productionTip = false
 
-window.globalStr = 'parent'
 
 new Vue({
   render: h => h(App),

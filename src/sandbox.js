@@ -139,9 +139,7 @@ export default class SandBox {
   // 修改js作用域
   bindScope(code) {
     window.proxyWindow = this.proxyWindow;
-    var a = `;(function(window, self){with(window){;${code}\n}}).call(window.proxyWindow, window.proxyWindow, window.proxyWindow);`;
 
-    console.log(a);
     return `;(function(window, self){with(window){;${code}\n}}).call(window.proxyWindow, window.proxyWindow, window.proxyWindow);`;
   }
 }

@@ -6,9 +6,7 @@ import { useEffect } from 'react';
 function App() {
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      console.log('scroll')
-    })
+ 
   }, [])
 
   return (

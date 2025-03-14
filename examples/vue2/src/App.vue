@@ -7,7 +7,7 @@
         class="flex-1"
         v-if="showapp"
         name="app"
-        url="http://localhost:3001/react18/"
+        url="http://localhost:3000/react18/"
       ></micro-app>
     </div>
   </div>
@@ -15,7 +15,6 @@
 
 <script>
 
-window.globalStr = 'parent'
 export default {
   name: "App",
 
